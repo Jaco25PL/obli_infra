@@ -1,0 +1,142 @@
+# =========================================================
+# DOCKER COMPOSE - OBLIGATORIO INFRAESTRUCTURA
+#
+# Levanta 4 contenedores:
+#   manager      - panel web + cliente SSH
+#   bash-runner  - script Bash (Parte 1)
+#   c-runner     - programas C (Parte 2)
+#   ada-runner   - Space Invaders ADA (Parte 3)
+#
+# Comando para levantar: docker compose up
+# Comando para bajar:    docker compose down
+# Panel web:             http://localhost:8080
+#
+# Instrucciones de compose vistas en clase:
+#   services, build, ports, networks, depends_on
+#
+# OJO: lo siguiente NO se vio en clase, hay que estudiarlo:
+#   read_only, tmpfs, cap_drop, cap_add, security_opt,
+#   internal (en networks)
+# =========================================================
+
+services:
+
+  # -------------------------------------------------------
+  # MANAGER - punto de entrada al sistema
+  # -------------------------------------------------------
+  manager:
+    build:
+      # context = directorio base para el COPY en el Dockerfile
+      # Usamos ".." (obli/) para acceder a todos los archivos
+      context: ..
+      dockerfile: parte4-docker/manager/Dockerfile
+    # Unico contenedor que expone puerto al host.
+    # 8080 del host -> 8080 del contenedor (panel web)
+    ports:
+      - "8080:8080"
+    # El manager esta en DOS redes:
+    #   - interna: para comunicarse con los runners via SSH
+    #   - publica: para que el host acceda al panel web
+    networks:
+      - interna
+      - publica
+    # Esperar a que los runners esten creados antes de arrancar
+    depends_on:
+      - bash-runner
+      - c-runner
+      - ada-runner
+    # --- HARDENING ---
+    # Filesystem de solo lectura: el contenedor no puede
+    # modificar sus archivos. Protege contra escrituras maliciosas.
+    # OJO: no visto en clase
+    read_only: true
+    # tmpfs: directorios temporales en RAM, escribibles.
+    # Necesarios porque read_only bloquea toda escritura al disco.
+    # OJO: no visto en clase
+    tmpfs:
+      - /tmp
+    # cap_drop ALL: quitar TODAS las capabilities de Linux.
+    # Las capabilities son permisos especiales del kernel
+    # (ej: NET_ADMIN, SYS_ADMIN). Quitarlas minimiza lo que
+    # el contenedor puede hacer si es comprometido.
+    # OJO: no visto en clase
+    cap_drop:
+      - ALL
+    # no-new-privileges: impide que un proceso dentro del
+    # contenedor gane mas privilegios de los que tiene
+    # (ej: via setuid, exec de binarios con capabilities).
+    # OJO: no visto en clase
+    security_opt:
+      - no-new-privileges:true
+
+  # -------------------------------------------------------
+  # BASH RUNNER - ejecuta el script de la Parte 1
+  # -------------------------------------------------------
+  bash-runner:
+    build:
+      context: ..
+      dockerfile: parte4-docker/bash-runner/Dockerfile
+    # Sin puertos expuestos al host.
+    # Solo accesible desde la red interna via SSH.
+    networks:
+      - interna
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /run    # sshd necesita /run/sshd para el PID file
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+
+  # -------------------------------------------------------
+  # C RUNNER - ejecuta los programas de la Parte 2
+  # -------------------------------------------------------
+  c-runner:
+    build:
+      context: ..
+      dockerfile: parte4-docker/c-runner/Dockerfile
+    networks:
+      - interna
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /run
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+
+  # -------------------------------------------------------
+  # ADA RUNNER - ejecuta Space Invaders de la Parte 3
+  # -------------------------------------------------------
+  ada-runner:
+    build:
+      context: ..
+      dockerfile: parte4-docker/ada-runner/Dockerfile
+    networks:
+      - interna
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /run
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+
+# =========================================================
+# REDES
+# =========================================================
+networks:
+  # Red interna: los runners y el manager se comunican aca.
+  # internal: true significa que NO tiene salida a internet.
+  # Los contenedores solo se ven entre si, no pueden
+  # acceder a nada fuera de esta red.
+  interna:
+    driver: bridge
+    internal: true
+  # Red publica: permite que el manager exponga el puerto
+  # 8080 al host para el panel web.
+  publica:
+    driver: bridge

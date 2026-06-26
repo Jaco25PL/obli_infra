@@ -1,0 +1,195 @@
+V "GNAT Lib v15"
+M P W=b
+P SS ZX
+
+RN
+RV NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_FIXED_POINT
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_RELATIVE_DELAY
+RV NO_SECONDARY_STACK
+RV NO_SELECT_STATEMENTS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_TASK_HIERARCHY
+RV NO_TASKING
+RV NO_TERMINATE_ALTERNATIVES
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLICIT_LOOPS
+RV MAX_SELECT_ALTERNATIVES=2
+RV MAX_TASK_ENTRIES=2
+RV MAX_TASKS=1+
+
+U space_invaders%b	space_invaders.adb	f3be78a6 NE OO SU
+W ada%s			ada.ads			ada.ali
+Z ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
+Z ada.real_time%s	a-reatim.adb		a-reatim.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z system%s		system.ads		system.ali
+Z system.concat_3%s	s-conca3.adb		s-conca3.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.parameters%s	s-parame.adb		s-parame.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.task_info%s	s-tasinf.adb		s-tasinf.ali
+Z system.tasking%s	s-taskin.adb		s-taskin.ali
+Z system.tasking.rendezvous%s  s-tasren.adb	s-tasren.ali
+Z system.tasking.stages%s  s-tassta.adb		s-tassta.ali
+
+D ada.ads		20260123000000 76789da1 ada%s
+D a-calend.ads		20260123000000 bf7f3cc9 ada.calendar%s
+D a-caldel.ads		20260123000000 9f20b83d ada.calendar.delays%s
+D a-except.ads		20260123000000 e7970cd9 ada.exceptions%s
+D a-finali.ads		20260123000000 bf4f806b ada.finalization%s
+D a-ioexce.ads		20260123000000 40018c65 ada.io_exceptions%s
+D a-reatim.ads		20260123000000 d11673fd ada.real_time%s
+D a-stream.ads		20260123000000 17477cbd ada.streams%s
+D a-string.ads		20260123000000 90ac6797 ada.strings%s
+D a-sttebu.ads		20260123000000 f1ad67a2 ada.strings.text_buffers%s
+D a-stuten.ads		20260123000000 c6ced0ae ada.strings.utf_encoding%s
+D a-tags.ads		20260123000000 fbca0ad5 ada.tags%s
+D a-textio.ads		20260123000000 34ef47de ada.text_io%s
+D a-unccon.ads		20260123000000 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20260123000000 9111f9c1 interfaces%s
+D i-c.ads		20260123000000 e94c966a interfaces.c%s
+D i-cstrea.ads		20260123000000 ffd01b9d interfaces.c_streams%s
+D space_invaders.adb	20260626034503 c7513f78 space_invaders%b
+D system.ads		20260123000000 14286b0f system%s
+D s-atacco.ads		20260123000000 5868e3ba system.address_to_access_conversions%s
+D s-conca3.ads		20260123000000 8a7a19a2 system.concat_3%s
+D s-crtl.ads		20260123000000 beb39b9e system.crtl%s
+D s-exctab.ads		20260123000000 91bef6ef system.exception_table%s
+D s-ficobl.ads		20260123000000 dc5161d4 system.file_control_block%s
+D s-finroo.ads		20260123000000 0a7c3ed4 system.finalization_root%s
+D s-imagei.ads		20260123000000 5e131ce0 system.image_i%s
+D s-imgint.ads		20260123000000 67e4edfb system.img_int%s
+D s-linux.ads		20260123000000 34850a8c system.linux%s
+D s-multip.ads		20260123000000 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20260123000000 322725c4 system.os_constants%s
+D s-osinte.ads		20260123000000 89e0af7e system.os_interface%s
+D s-oslock.ads		20260123000000 13fa6b78 system.os_locks%s
+D s-parame.ads		20260123000000 3597fc11 system.parameters%s
+D s-putima.ads		20260123000000 17291fe4 system.put_images%s
+D s-secsta.ads		20260123000000 578279f5 system.secondary_stack%s
+D s-soflin.ads		20260123000000 5d88fdea system.soft_links%s
+D s-stache.ads		20260123000000 0b81c1fe system.stack_checking%s
+D s-stausa.ads		20260123000000 5be75682 system.stack_usage%s
+D s-stalib.ads		20260123000000 1c9580f6 system.standard_library%s
+D s-stoele.ads		20260123000000 ccded4e8 system.storage_elements%s
+D s-tasinf.ads		20260123000000 528dde74 system.task_info%s
+D s-taspri.ads		20260123000000 1e109e82 system.task_primitives%s
+D s-taprop.ads		20260123000000 750673ca system.task_primitives.operations%s
+D s-taskin.ads		20260123000000 38289021 system.tasking%s
+D s-taprob.ads		20260123000000 acd6094d system.tasking.protected_objects%s
+D s-tpoben.ads		20260123000000 60ad3dae system.tasking.protected_objects.entries%s
+D s-tasren.ads		20260123000000 a67a9949 system.tasking.rendezvous%s
+D s-tassta.ads		20260123000000 cca55c94 system.tasking.stages%s
+D s-traent.ads		20260123000000 c81cbf8c system.traceback_entries%s
+D s-unstyp.ads		20260123000000 fa2a7f59 system.unsigned_types%s
+D s-valspe.ads		20260123000000 f810d31c system.val_spec%s
+D s-vaispe.ads		20260123000000 8280550e system.value_i_spec%s
+D s-vauspe.ads		20260123000000 89269ba5 system.value_u_spec%s
+D s-vs_int.ads		20260123000000 06b6b724 system.vs_int%s
+D s-vs_uns.ads		20260123000000 e7f47a27 system.vs_uns%s
+D s-wchcon.ads		20260123000000 d9032363 system.wch_con%s
+G a e
+G c Z b b [space_invaders standard 15 11 none]
+X 1 ada.ads
+18K9*Ada 22e8 18|13r6 13r24
+X 13 a-textio.ads
+58K13*Text_IO 785e16 18|13w10 13r28
+284U14*New_Line 18|313s10 319s7
+433U14*Put 18|311s13
+482U14*Get_Immediate 18|367s10
+515U14*Put 18|306s7 317s7 450s4
+565U14*Put_Line 18|452s7 454s7
+X 18 space_invaders.adb
+15U11*Space_Invaders 15b11 457l5 457t19
+20i4 ANCHO{integer} 60r30 259r41 272r37 290r53 298r51 310r24 382r42 417r29
+. 429r22
+21i4 ALTO{integer} 184r18 259r30 270r29 290r29 299r20 300r20 301r20 302r20
+. 309r21
+22i4 NAVE_ANCHO{integer} 201r52 382r28 421r37 422r46
+23i4 NAVES_POR_FILA{integer} 25r41 338r21 340r50
+24i4 FILAS_NAVES{integer} 25r58 337r21
+25i4 TOTAL_NAVES{integer} 57r22 62r30 90r24 196r27 263r21 419r24
+26i4 MAX_BALAS{integer} 58r22 91r24 284r21 350r18 388r27
+33E9 Estado_Nave_T 33e43 39r17
+33n27 Viva{33E9} 118r27 121r31 198r36 264r30 420r33
+33n33 Destruida{33E9} 39r35 132r32
+36R9 Info_Nave 40e14 57r38
+37i7 Fila{integer} 116m16 199r43 266r48
+38i7 Columna{integer} 117m16 142m22 200r43 201r42 267r48 421r27 422r36 424r27
+. 425r36
+39e7 Estado{33E9} 118m16 121r22 132m22 198r27 264r21 420r24
+43R9 Info_Bala 47e14 58r36
+44i7 Fila{integer} 185m19 231m25 287r48
+45i7 Columna{integer} 186m19 288r48
+46b7 Activa{boolean} 187m19 237m19 285r21 389r31
+57a4 Nav(36R9) 116m7 117m7 118m7 121r13 132m13 142m13 198r19 199r35 200r35
+. 201r34 264r13 266r40 267r40 420r16 421r19 422r28 424r19 425r28
+58a4 Bal(43R9) 185m10 186m10 187m10 231m16 237m10 285r13 287r40 288r40 389r23
+60i4 Canon_Col{integer} 298r10 298r34 299r26 300r26 301r26 302r26 376r16
+. 377m16 377r29 382r16 383m16 383r29 394r45
+61i4 Direccion{integer} 141r26 430m13 433m13
+62i4 Naves_Vivas{integer} 133m13 133r28 317r38 438r10 451r7
+63b4 Juego_Activo{boolean} 121r45 193r56 358r10 407m13 439m10
+76T14 Tarea_Nave 79l8 79e18 90r40 102b14 146l8 146t18
+77Y13 Iniciar 77>22 77>42 77>58 109b14 113l11 113t18 344s24
+77i22 Mi_Id{integer} 110r18
+77i42 F{integer} 111r18
+77i58 C{integer} 112r18
+78Y13 Impactar 131b20 216s35
+84T14 Tarea_Bala 87l8 87e18 91r38 159b14 239l8 239t18
+85Y13 Iniciar_Bala 85>27 166b14 168l11 168t23 351s17
+85i27 Mi_Id{integer} 167r16
+86Y13 Disparar 86>23 176b20 178l17 178t25 394s35
+86i23 Col_Inicio{integer} 177r23
+90a4 Naves(76T14) 216r25 344r13
+91a4 Balas(84T14) 351r7 394r25
+103i7 Id{integer} 110m10 116r12 117r12 118r12 121r18 132r18 142r18
+104i7 Fila{integer} 111m10 116r27
+105i7 Col{integer} 112m10 117r27 141m13 141r20 142r33
+109i23 Mi_Id{integer}
+109i43 F{integer}
+109i59 C{integer}
+160i7 Id{integer} 167m10 185r15 186r15 187r15 231r21 237r15
+161i7 Fila{integer} 184m10 185r30 193r16 199r28 230m16 230r24 231r33
+162i7 Col{integer} 177m16 186r30 200r28 201r28
+163b7 Golpe{boolean} 188m10 193r40 217m25 229r20
+166i28 Mi_Id{integer}
+176i30 Col_Inicio{integer}
+196i17 I{integer} 198r24 199r40 200r40 201r39 216r32
+255U14 Dibujar 255b14 320l8 320t15 443s7
+259a7 Pantalla(character) 274m19 275m19 276m19 277m19 291m19 299m10 300m10
+. 301m10 302m10 311r18
+263i11 I{integer} 264r18 266r45 267r45
+266i16 F{integer} 270r19 274r29 275r29 276r29 277r29
+267i16 C{integer} 271r28 272r28 274r32 275r32 276r32 277r32
+284i11 I{integer} 285r18 287r45 288r45
+287i16 F{integer} 290r19 291r29
+288i16 C{integer} 290r43 291r32
+309i11 F{integer} 311r28
+310i14 C{integer} 311r31
+323e4 Tecla{character} 367m25 375r13 375r28 381r16 381r31 387r16 387r31 406r16
+. 406r31
+324b4 Hay_Tecla{boolean} 367m32 369m25 372r10
+337i8 Fila{integer} 340r43 341r47 342r47
+338i11 C{integer} 340r67 342r58
+340i13 Id{integer} 344r20 344r33
+341i13 Fila_P{integer} 344r37
+342i13 Col_P{integer} 344r45
+350i8 I{integer} 351r14 351r31
+388i17 I{integer} 389r28 394r32
+416i10 Max_C{integer} 421r50 422m19 429r13
+417i10 Min_C{integer} 424r37 425m19 432r13
+419i14 I{integer} 420r21 421r24 422r33 424r24 425r33
+X 38 s-stausa.ads
+207U14*Initialize 208i<c,__gnat_stack_usage_initialize>22
+272U14*Output_Results 276i<c,__gnat_stack_usage_output_results>22
+

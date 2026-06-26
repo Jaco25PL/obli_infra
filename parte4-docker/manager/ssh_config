@@ -1,0 +1,22 @@
+# =========================================================
+# CONFIGURACION DEL CLIENTE SSH DEL MANAGER
+#
+# Define como conectarse a cada runner.
+# Cuando el operador escribe "ssh bash-runner", SSH usa
+# esta configuracion para saber el puerto, usuario y clave.
+#
+# OJO: StrictHostKeyChecking no y UserKnownHostsFile /dev/null
+# NO se usarian en produccion. Aca los usamos porque:
+#   1. Los contenedores se recrean seguido (las claves cambian)
+#   2. Estamos en una red interna controlada de Docker
+#   3. El filesystem es read-only, no puede guardar known_hosts
+# =========================================================
+
+# Configuracion comun para los tres runners
+Host bash-runner c-runner ada-runner
+    Port 2222
+    User runner
+    IdentityFile /home/manager/.ssh/id_ed25519
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+    LogLevel ERROR

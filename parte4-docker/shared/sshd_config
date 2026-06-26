@@ -1,0 +1,58 @@
+# =========================================================
+# CONFIGURACION DE SSH ENDURECIDA PARA LOS RUNNERS
+#
+# OJO: estas directivas de seguridad de SSH NO se vieron en
+# clase, hay que estudiarlas aparte.
+#
+# Este archivo es compartido por los 3 runners.
+# Se copia dentro del contenedor durante la construccion.
+# =========================================================
+
+# Puerto alto (2222) para poder correr sshd sin root.
+# Los puertos menores a 1024 requieren privilegios de root.
+Port 2222
+
+# Clave del host: el servidor se identifica con esta clave.
+# Se genera durante la construccion de la imagen.
+HostKey /home/runner/ssh-host/ssh_host_ed25519_key
+
+# Archivo de PID: donde sshd guarda su numero de proceso.
+# Lo ponemos en /tmp porque el filesystem es read-only
+# y /tmp esta montado como tmpfs (escribible).
+PidFile /tmp/sshd.pid
+
+# --- HARDENING DE SSH ---
+
+# No permitir login como root
+# (solo se puede entrar como el usuario "runner")
+PermitRootLogin no
+
+# Solo autenticacion por clave publica (no por password).
+# Esto evita ataques de fuerza bruta con passwords.
+PasswordAuthentication no
+PubkeyAuthentication yes
+
+# Ubicacion de las claves publicas autorizadas.
+# Solo quien tenga la clave privada correspondiente puede entrar.
+AuthorizedKeysFile /home/runner/.ssh/authorized_keys
+
+# Desactivar autenticacion interactiva por teclado
+KbdInteractiveAuthentication no
+
+# No usar PAM (simplifica la config y reduce superficie de ataque).
+# En Alpine, PAM no esta disponible asi que esta opcion se ignora.
+# En Debian, desactivar PAM evita dependencias innecesarias.
+# Se comenta en vez de usar "UsePAM no" porque Alpine no soporta
+# esta directiva y muestra un warning.
+# UsePAM no
+
+# Desactivar X11 forwarding (no lo necesitamos)
+X11Forwarding no
+
+# No mostrar mensaje de bienvenida
+PrintMotd no
+
+# StrictModes off: necesario para correr sshd como usuario
+# no root, porque sshd verifica permisos de archivos y
+# se queja si no son los esperados.
+StrictModes no
