@@ -253,6 +253,10 @@ def generar_html():
         <p><code>ssh c-runner "cd app && ./restaurante"</code></p>
         <p><code>ssh c-runner "cd app && ./precedencias"</code></p>
         <p><code>ssh -t ada-runner "cd app && ./space_invaders"</code></p>
+        <p style="color: #666; font-size: 0.82em;">
+            Tip: para ocultar el cursor y que se vea mejor el juego:
+        </p>
+        <p><code style="color: #88aacc;">printf '\\e[?25l' && ssh -t ada-runner "cd app && ./space_invaders" ; printf '\\e[?25h'</code></p>
         <p style="color: #888; font-size: 0.85em;">
             Nota: el juego de ADA necesita <code>ssh -t</code> para terminal interactiva.
         </p>
